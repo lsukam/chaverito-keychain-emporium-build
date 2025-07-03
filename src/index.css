@@ -2,57 +2,92 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
+/* Chaverito E-commerce Design System
+All colors MUST be HSL for semantic token consistency
 */
 
 @layer base {
   :root {
+    /* Core Brand Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 210 24% 16%;
+    
+    /* Card & Surface Colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 210 24% 16%;
+    
+    /* Popover Colors */
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
-
-    --sidebar-background: 0 0% 98%;
-
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --popover-foreground: 210 24% 16%;
+    
+    /* Primary Brand - Deep Navy */
+    --primary: 210 24% 16%;
+    --primary-foreground: 0 0% 98%;
+    --primary-hover: 210 24% 12%;
+    
+    /* Secondary - Light Gray */
+    --secondary: 210 17% 95%;
+    --secondary-foreground: 210 24% 16%;
+    
+    /* Muted Colors */
+    --muted: 210 17% 95%;
+    --muted-foreground: 215 16% 47%;
+    
+    /* Accent - Vibrant Orange/Coral */
+    --accent: 17 88% 60%;
+    --accent-foreground: 0 0% 98%;
+    --accent-hover: 17 88% 56%;
+    
+    /* Success - Green */
+    --success: 142 71% 45%;
+    --success-foreground: 0 0% 98%;
+    
+    /* Warning - Yellow */
+    --warning: 45 93% 58%;
+    --warning-foreground: 210 24% 16%;
+    
+    /* Destructive - Red */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    
+    /* Border & Input */
+    --border: 210 20% 87%;
+    --input: 210 20% 87%;
+    --ring: 17 88% 60%;
+    
+    /* Keychain Theme Colors */
+    --theme-stitch: 197 71% 52%;
+    --theme-toothless: 240 6% 10%;
+    --theme-bt21: 261 83% 58%;
+    --theme-skzoo: 45 93% 58%;
+    --theme-pokemon: 349 89% 60%;
+    --theme-labubu: 171 77% 64%;
+    
+    /* E-commerce Specific */
+    --price: 142 71% 45%;
+    --sale-price: 0 84% 60%;
+    --discount-bg: 142 71% 45%;
+    --badge: 17 88% 60%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(210 24% 16%) 0%, hsl(210 24% 12%) 100%);
+    --gradient-accent: linear-gradient(135deg, hsl(17 88% 60%) 0%, hsl(17 88% 56%) 100%);
+    --gradient-theme: linear-gradient(135deg, hsl(197 71% 52%) 0%, hsl(261 83% 58%) 50%, hsl(171 77% 64%) 100%);
+    
+    /* Shadows */
+    --shadow-card: 0 4px 6px -1px hsl(210 24% 16% / 0.1), 0 2px 4px -1px hsl(210 24% 16% / 0.06);
+    --shadow-product: 0 10px 15px -3px hsl(210 24% 16% / 0.1), 0 4px 6px -2px hsl(210 24% 16% / 0.05);
+    --shadow-hover: 0 20px 25px -5px hsl(210 24% 16% / 0.1), 0 10px 10px -5px hsl(210 24% 16% / 0.04);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-fast: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    /* Border Radius */
+    --radius: 0.75rem;
+    --radius-sm: 0.5rem;
+    --radius-lg: 1rem;
+    --radius-xl: 1.5rem;
   }
 
   .dark {
