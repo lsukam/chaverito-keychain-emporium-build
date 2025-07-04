@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Search, Heart, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 import chaveritoLogo from "@/assets/chaverito-logo.jpg";
 
 const Header = () => {
@@ -21,14 +22,14 @@ const Header = () => {
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between gap-4">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <Link to="/" className="flex items-center gap-3">
             <img 
               src={chaveritoLogo} 
               alt="Chaverito" 
               className="h-10 w-auto rounded-md"
             />
             <h1 className="text-2xl font-bold text-primary">Chaverito</h1>
-          </div>
+          </Link>
 
           {/* Search bar */}
           <div className="flex-1 max-w-md mx-4">
@@ -50,47 +51,51 @@ const Header = () => {
               <Heart className="h-5 w-5" />
             </Button>
             
-            <Button variant="ghost" size="icon" className="relative">
-              🛒
-              {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground rounded-full text-xs w-5 h-5 flex items-center justify-center font-semibold">
-                  {cartCount}
-                </span>
-              )}
+            <Button asChild variant="ghost" size="icon" className="relative">
+              <Link to="/carrinho">
+                🛒
+                {cartCount > 0 && (
+                  <span className="absolute -top-1 -right-1 bg-accent text-accent-foreground rounded-full text-xs w-5 h-5 flex items-center justify-center font-semibold">
+                    {cartCount}
+                  </span>
+                )}
+              </Link>
             </Button>
             
-            <Button variant="ghost" size="icon">
-              <User className="h-5 w-5" />
+            <Button asChild variant="ghost" size="icon">
+              <Link to="/conta">
+                <User className="h-5 w-5" />
+              </Link>
             </Button>
           </div>
         </div>
 
-        {/* Navigation */}
+        {/* Navigation */}  
         <nav className="mt-4">
           <div className="flex items-center justify-center gap-8">
-            <Button variant="ghost" className="font-medium hover:text-accent">
-              Início
+            <Button asChild variant="ghost" className="font-medium hover:text-accent">
+              <Link to="/">Início</Link>  
             </Button>
-            <Button variant="ghost" className="font-medium hover:text-accent">
-              Stitch
+            <Button asChild variant="ghost" className="font-medium hover:text-accent">
+              <Link to="/categoria/stitch">Stitch</Link>
             </Button>
-            <Button variant="ghost" className="font-medium hover:text-accent">
-              Toothless
+            <Button asChild variant="ghost" className="font-medium hover:text-accent">
+              <Link to="/categoria/toothless">Toothless</Link>
             </Button>
-            <Button variant="ghost" className="font-medium hover:text-accent">
-              BT21
+            <Button asChild variant="ghost" className="font-medium hover:text-accent">
+              <Link to="/categoria/bt21">BT21</Link>
             </Button>
-            <Button variant="ghost" className="font-medium hover:text-accent">
-              Skzoo
+            <Button asChild variant="ghost" className="font-medium hover:text-accent">
+              <Link to="/categoria/skzoo">Skzoo</Link>
             </Button>
-            <Button variant="ghost" className="font-medium hover:text-accent">
-              Pokémon
+            <Button asChild variant="ghost" className="font-medium hover:text-accent">
+              <Link to="/categoria/pokemon">Pokémon</Link>
             </Button>
-            <Button variant="ghost" className="font-medium hover:text-accent">
-              Labubu
+            <Button asChild variant="ghost" className="font-medium hover:text-accent">
+              <Link to="/categoria/labubu">Labubu</Link>
             </Button>
-            <Button variant="accent" size="sm" className="ml-4">
-              OFERTAS
+            <Button asChild variant="accent" size="sm" className="ml-4">
+              <Link to="/ofertas">OFERTAS</Link>
             </Button>
           </div>
         </nav>
