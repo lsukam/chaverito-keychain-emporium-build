@@ -3,6 +3,7 @@ import { Heart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { Link } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import stitchKeychain from "@/assets/stitch-keychain.jpg";
 import toothlessKeychain from "@/assets/toothless-keychain.jpg";
@@ -188,12 +189,14 @@ const FeaturedProducts = () => {
 
               <CardFooter className="p-4 pt-0">
                 <Button 
-                  variant="cart" 
+                  asChild
+                  variant="accent" 
                   className="w-full"
                   disabled={product.stock_quantity === 0}
                 >
-                  🛒
-                  {product.stock_quantity === 0 ? 'Esgotado' : 'Adicionar ao Carrinho'}
+                  <Link to={`/produto/${product.slug}`}>
+                    {product.stock_quantity === 0 ? 'Esgotado' : 'Ver Produto'}
+                  </Link>
                 </Button>
               </CardFooter>
             </Card>

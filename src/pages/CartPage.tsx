@@ -4,27 +4,11 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
 import { Minus, Plus, Trash2, ShoppingBag } from "lucide-react";
+import { useCart } from "@/contexts/CartContext";
+import { Link } from "react-router-dom";
 
 const CartPage = () => {
-  // Mock cart items - will be replaced with real cart logic later
-  const cartItems = [
-    {
-      id: 1,
-      name: "Chaveiro Stitch Fofo",
-      price: 29.90,
-      quantity: 2,
-      image: "🔑",
-      category: "Stitch"
-    },
-    {
-      id: 2,
-      name: "Chaveiro Toothless Dragão",
-      price: 34.90,
-      quantity: 1,
-      image: "🔑",
-      category: "Toothless"
-    }
-  ];
+  const { items, updateQuantity, removeFromCart, getTotalPrice } = useCart();
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('pt-BR', {
@@ -33,11 +17,11 @@ const CartPage = () => {
     }).format(price);
   };
 
-  const subtotal = cartItems.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+  const subtotal = getTotalPrice();
   const shipping = subtotal >= 149.90 ? 0 : 15.90;
   const total = subtotal + shipping;
 
-  if (cartItems.length === 0) {
+  if (items.length === 0) {
     return (
       <div className="min-h-screen bg-background">
         <Header />
@@ -48,8 +32,8 @@ const CartPage = () => {
             <p className="text-muted-foreground mb-6">
               Adicione alguns chaveiros incríveis para começar suas compras!
             </p>
-            <Button variant="accent" size="lg">
-              Explorar Produtos
+            <Button asChild variant="accent" size="lg">
+              <Link to="/">Explorar Produtos</Link>
             </Button>
           </div>
         </div>
@@ -68,17 +52,23 @@ const CartPage = () => {
         <div className="grid lg:grid-cols-3 gap-8">
           {/* Cart Items */}
           <div className="lg:col-span-2 space-y-4">
-            {cartItems.map((item) => (
+            {items.map((item) => (
               <Card key={item.id}>
                 <CardContent className="p-6">
                   <div className="flex items-center gap-4">
                     <div className="w-16 h-16 bg-secondary/50 rounded-lg flex items-center justify-center text-2xl">
-                      {item.image}
+                      {typeof item.image === 'string' && item.image.startsWith('http') ? (
+                        <img src={item.image} alt={item.name} className="w-full h-full object-cover rounded-lg" />
+                      ) : (
+                        item.image
+                      )}
                     </div>
                     
                     <div className="flex-1">
                       <h3 className="font-semibold text-lg">{item.name}</h3>
-                      <p className="text-muted-foreground text-sm">{item.category}</p>
+                      <Link to={`/produto/${item.slug}`} className="text-muted-foreground text-sm hover:text-accent">
+                        Ver produto
+                      </Link>
                       <p className="font-bold text-primary mt-1">
                         {formatPrice(item.price)}
                       </p>
@@ -86,18 +76,33 @@ const CartPage = () => {
                     
                     <div className="flex items-center gap-3">
                       <div className="flex items-center gap-2 border rounded-lg">
-                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="h-8 w-8 p-0"
+                          onClick={() => updateQuantity(item.productId, item.quantity - 1)}
+                        >
                           <Minus className="h-4 w-4" />
                         </Button>
                         <span className="px-3 py-1 min-w-[2rem] text-center">
                           {item.quantity}
                         </span>
-                        <Button variant="ghost" size="sm" className="h-8 w-8 p-0">
+                        <Button 
+                          variant="ghost" 
+                          size="sm" 
+                          className="h-8 w-8 p-0"
+                          onClick={() => updateQuantity(item.productId, item.quantity + 1)}
+                        >
                           <Plus className="h-4 w-4" />
                         </Button>
                       </div>
                       
-                      <Button variant="ghost" size="sm" className="text-destructive hover:text-destructive">
+                      <Button 
+                        variant="ghost" 
+                        size="sm" 
+                        className="text-destructive hover:text-destructive"
+                        onClick={() => removeFromCart(item.productId)}
+                      >
                         <Trash2 className="h-4 w-4" />
                       </Button>
                     </div>
@@ -144,8 +149,8 @@ const CartPage = () => {
                   Finalizar Compra
                 </Button>
                 
-                <Button variant="outline" className="w-full mt-3">
-                  Continuar Comprando
+                <Button asChild variant="outline" className="w-full mt-3">
+                  <Link to="/">Continuar Comprando</Link>
                 </Button>
                 
                 <div className="mt-6 text-center text-sm text-muted-foreground">

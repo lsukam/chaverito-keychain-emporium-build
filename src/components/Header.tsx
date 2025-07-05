@@ -3,11 +3,13 @@ import { Search, Heart, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "react-router-dom";
+import { useCart } from "@/contexts/CartContext";
 import chaveritoLogo from "@/assets/chaverito-logo.jpg";
 
 const Header = () => {
   const [searchQuery, setSearchQuery] = useState("");
-  const [cartCount] = useState(3); // This will come from cart context later
+  const { getTotalItems } = useCart();
+  const cartCount = getTotalItems();
 
   return (
     <header className="sticky top-0 z-50 bg-background border-b border-border shadow-card">

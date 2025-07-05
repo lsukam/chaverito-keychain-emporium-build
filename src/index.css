@@ -8,35 +8,35 @@ All colors MUST be HSL for semantic token consistency
 
 @layer base {
   :root {
-    /* Core Brand Colors */
+    /* Core Brand Colors - Chaverito */
     --background: 0 0% 100%;
-    --foreground: 210 24% 16%;
+    --foreground: 0 0% 0%;
     
     /* Card & Surface Colors */
     --card: 0 0% 100%;
-    --card-foreground: 210 24% 16%;
+    --card-foreground: 0 0% 0%;
     
     /* Popover Colors */
     --popover: 0 0% 100%;
-    --popover-foreground: 210 24% 16%;
+    --popover-foreground: 0 0% 0%;
     
-    /* Primary Brand - Deep Navy */
-    --primary: 210 24% 16%;
-    --primary-foreground: 0 0% 98%;
-    --primary-hover: 210 24% 12%;
+    /* Primary Brand - Deep Navy Blue */
+    --primary: 196 93% 20%;
+    --primary-foreground: 0 0% 100%;
+    --primary-hover: 196 93% 15%;
     
-    /* Secondary - Light Gray */
-    --secondary: 210 17% 95%;
-    --secondary-foreground: 210 24% 16%;
+    /* Secondary - Green */
+    --secondary: 131 28% 50%;
+    --secondary-foreground: 0 0% 100%;
     
     /* Muted Colors */
     --muted: 210 17% 95%;
     --muted-foreground: 215 16% 47%;
     
-    /* Accent - Vibrant Orange/Coral */
-    --accent: 17 88% 60%;
-    --accent-foreground: 0 0% 98%;
-    --accent-hover: 17 88% 56%;
+    /* Accent - Purple */
+    --accent: 244 47% 34%;
+    --accent-foreground: 0 0% 100%;
+    --accent-hover: 244 47% 29%;
     
     /* Success - Green */
     --success: 142 71% 45%;
