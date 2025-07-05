@@ -52,6 +52,7 @@ const ProductPage = () => {
   useEffect(() => {
     if (productSlug) {
       fetchProduct();
+      window.scrollTo(0, 0);
     }
   }, [productSlug]);
 

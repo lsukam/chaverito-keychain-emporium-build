@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { Link } from "react-router-dom";
 import chaveritoLogo from "@/assets/chaverito-logo.jpg";
 
 const Footer = () => {
@@ -55,11 +56,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Links Rápidos</h4>
             <ul className="space-y-2 text-primary-foreground/80">
-              <li><a href="#" className="hover:text-accent transition-colors">Início</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Produtos</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Categorias</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Ofertas</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Contato</a></li>
+              <li><Link to="/" className="hover:text-accent transition-colors">Início</Link></li>
+              <li><Link to="/categoria/stitch" className="hover:text-accent transition-colors">Produtos</Link></li>
+              <li><Link to="/categoria/stitch" className="hover:text-accent transition-colors">Categorias</Link></li>
+              <li><Link to="/ofertas" className="hover:text-accent transition-colors">Ofertas</Link></li>
+              <li><Link to="/conta" className="hover:text-accent transition-colors">Contato</Link></li>
             </ul>
           </div>
 
@@ -67,11 +68,11 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-4">Atendimento</h4>
             <ul className="space-y-2 text-primary-foreground/80">
-              <li><a href="#" className="hover:text-accent transition-colors">Minha Conta</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Pedidos</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Trocas e Devoluções</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">Rastreamento</a></li>
-              <li><a href="#" className="hover:text-accent transition-colors">FAQ</a></li>
+              <li><Link to="/conta" className="hover:text-accent transition-colors">Minha Conta</Link></li>
+              <li><Link to="/conta" className="hover:text-accent transition-colors">Pedidos</Link></li>
+              <li><Link to="/conta" className="hover:text-accent transition-colors">Trocas e Devoluções</Link></li>
+              <li><Link to="/conta" className="hover:text-accent transition-colors">Rastreamento</Link></li>
+              <li><Link to="/conta" className="hover:text-accent transition-colors">FAQ</Link></li>
             </ul>
           </div>
         </div>
@@ -102,8 +103,8 @@ const Footer = () => {
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-primary-foreground/60">
           <p>&copy; 2024 Chaverito. Todos os direitos reservados.</p>
           <p className="mt-2 text-sm">
-            <a href="#" className="hover:text-accent transition-colors">Política de Privacidade</a> • 
-            <a href="#" className="hover:text-accent transition-colors ml-1">Termos de Uso</a>
+            <Link to="/conta" className="hover:text-accent transition-colors">Política de Privacidade</Link> • 
+            <Link to="/conta" className="hover:text-accent transition-colors ml-1">Termos de Uso</Link>
           </p>
         </div>
       </div>

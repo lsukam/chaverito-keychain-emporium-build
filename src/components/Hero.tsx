@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import heroBanner from "@/assets/hero-banner.jpg";
 
 const Hero = () => {
@@ -29,11 +30,11 @@ const Hero = () => {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center animate-bounce-in">
-            <Button variant="accent" size="xl" className="font-bold">
-              VER COLEÇÃO COMPLETA
+            <Button asChild variant="accent" size="xl" className="font-bold">
+              <Link to="/categoria/stitch">VER COLEÇÃO COMPLETA</Link>
             </Button>
-            <Button variant="outline" size="xl" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary">
-              OFERTAS ESPECIAIS
+            <Button asChild variant="outline" size="xl" className="bg-white/10 border-white text-white hover:bg-white hover:text-primary">
+              <Link to="/ofertas">OFERTAS ESPECIAIS</Link>
             </Button>
           </div>
 

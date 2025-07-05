@@ -14,7 +14,7 @@ const Header = () => {
   return (
     <header className="sticky top-0 z-50 bg-background border-b border-border shadow-card">
       {/* Top promotional banner */}
-      <div className="bg-gradient-accent text-accent-foreground py-2 px-4 text-center">
+      <div className="bg-primary text-primary-foreground py-2 px-4 text-center">
         <p className="text-sm font-medium">
           🎉 FRETE GRÁTIS a partir de R$ 149,90 | Aproveite nossas promoções!
         </p>
